@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Executor</title>
+    <!-- Bootstrap CSS from a reliable CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/api-executor.css">
+    <style>
+        /* Custom styles to make elements wider */
+        #api-executor-container .form-control-lg, #api-executor-container .form-select-lg {
+            height: calc(2.875rem + 2px);
+            font-size: 1.25rem;
+        }
+
+        /* Adjusting sidebar width and content area */
+        .col-md-4 {
+            flex: 0 0 auto;
+            width: 30%; /* Making sidebar 30% width */
+        }
+
+        .col-md-8 {
+            flex: 0 0 auto;
+            width: 70%; /* Making content area 70% width */
+        }
+
+        /* Make buttons and inputs larger */
+        .btn-lg {
+            padding: 0.75rem 1.5rem;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row">
+        <!-- Sidebar for Test Cases -->
+        <div class="col-md-4">
+            <h4 class="mb-3">Generated Test Cases</h4>
+            <div id="test-case-list" class="list-group">
+                <!-- Test cases will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Main content for API Executor -->
+        <div class="col-md-8">
+            <div class="text-center mb-5">
+                <h1 class="display-4">API Executor</h1>
+                <a href="/upload.html" class="btn btn-outline-secondary btn-lg"><i class="fas fa-arrow-left"></i> Back to Upload</a>
+            </div>
+
+            <div id="api-executor-container" class="card p-4 shadow-sm">
+                <!-- Method, Base URL, and Endpoint Section -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-2">
+                        <select id="method" class="form-select form-select-lg">
+                            <option value="GET">GET</option>
+                            <option value="POST">POST</option>
+                            <option value="PUT">PUT</option>
+                            <option value="DELETE">DELETE</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" id="baseUrl" class="form-control form-control-lg"
+                               placeholder="https://api.yourdomain.com">
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" id="endpoint" class="form-control form-control-lg"
+                               placeholder="/your-endpoint">
+                    </div>
+                </div>
+
+                <!-- Tabs for Headers and Body -->
+                <ul class="nav nav-tabs mb-3" id="apiExecutorTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="headers-tab" data-bs-toggle="tab" data-bs-target="#headers" type="button" role="tab" aria-controls="headers" aria-selected="true">Headers</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="body-tab" data-bs-toggle="tab" data-bs-target="#body" type="button" role="tab" aria-controls="body" aria-selected="false">Body</button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="apiExecutorTabsContent">
+                    <div class="tab-pane fade show active" id="headers" role="tabpanel" aria-labelledby="headers-tab">
+                        <label for="headers" class="form-label fw-bold">Headers (JSON format):</label>
+                        <textarea id="headers" class="form-control" rows="3" placeholder='{"Content-Type": "application/json"}'></textarea>
+                    </div>
+                    <div class="tab-pane fade" id="body" role="tabpanel" aria-labelledby="body-tab">
+                        <label for="body" class="form-label fw-bold">Request Body:</label>
+                        <textarea id="body" class="form-control" rows="5" placeholder="Enter request body if required"></textarea>
+                    </div>
+                </div>
+
+                <!-- Execute Button -->
+                <div class="text-center mt-4">
+                    <button type="button" id="execute-api-btn" class="btn btn-primary btn-lg w-100">
+                        <i class="fas fa-play"></i> Execute API
+                    </button>
+                </div>
+            </div>
+
+            <!-- Response Section -->
+            <div id="api-response" class="mt-4 card p-4 shadow-sm"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS from the same reliable CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/api-executor.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and container styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+header nav a {
+    margin-left: 20px;
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    background-color: #fff;
+    color: #007bff;
+}
+
+/* Upload form and button styling */
+#upload-form {
+    border-radius: 15px;
+    padding: 50px;
+    background-color: #f9fafc;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#upload-form label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    display: block;
+    font-size: 1.1rem;
+}
+
+#upload-form label[for="file"] {
+    cursor: pointer;
+    display: inline-block;
+    padding: 20px 40px;
+    background-color: #f0f4f8;
+    border: 2px dashed #007bff;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+#upload-form label[for="file"]:hover {
+    background-color: #e1e7f1;
+}
+
+#upload-form button {
+    margin-top: 30px;
+    padding: 15px 45px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#upload-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Test cases display */
+#test-cases-container {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f8f9fc;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#filter-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+#filter-controls label {
+    font-weight: 600;
+    color: #333;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+#filter-controls select {
+    padding: 15px 25px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f8f9fc;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#filter-controls select:hover {
+    border-color: #007bff;
+}
+
+.test-case {
+    background-color: #eef2f7;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-left: 10px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.test-case:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.test-case h3 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.test-case p {
+    margin: 10px 0;
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.test-case p strong {
+    color: #333;
+}
+
+/* Download link */
+#download-link {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#download-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.3rem;
+    transition: text-decoration 0.3s ease;
+}
+
+#download-link a:hover {
+    text-decoration: underline;
+}
+
+/* Chart styling */
+#testCaseChart {
+    margin-top: 50px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+
+    #filter-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #filter-controls label, #filter-controls select {
+        margin-bottom: 15px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav {
+        margin-top: 15px;
+        flex-direction: column;
+    }
+
+    header nav a {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    /* Sidebar adjustments */
+    #test-case-list {
+        max-height: 70vh;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+
+    .test-case {
+        cursor: pointer;
+    }
+
+    .test-case:hover {
+        background-color: #f1f1f1;
+    }
+}

@@ -1,0 +1,215 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and container styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f3f6fb;
+    color: #555;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+header {
+    background-color: #1a73e8;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+header nav a {
+    margin-left: 20px;
+    padding: 10px 25px;
+    font-size: 1.2em;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+header nav a.btn-outline-primary:hover {
+    background-color: #ffffff;
+    color: #1a73e8;
+}
+
+header nav a.btn-outline-secondary:hover {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Upload form and button styling */
+#upload-form {
+    border-radius: 10px;
+    padding: 30px;
+    background-color: #f9fafc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+#upload-form label {
+    font-weight: 600;
+    color: #555;
+}
+
+#upload-form label[for="file"] {
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #f3f6fb;
+    border: 2px dashed #1a73e8;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+}
+
+#upload-form label[for="file"]:hover {
+    background-color: #e9effa;
+}
+
+#upload-form button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#upload-form button:hover {
+    background-color: #1558b0;
+}
+
+/* Test cases display */
+#test-cases-container {
+    margin-top: 50px;
+}
+
+#filter-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#filter-controls label {
+    font-weight: 600;
+    color: #555;
+    margin-right: 15px;
+}
+
+#filter-controls select {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.test-case {
+    background-color: #f4f6f9;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-left: 6px solid #1a73e8;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.test-case h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.test-case p {
+    margin: 10px 0;
+    color: #666;
+    font-size: 1.1em;
+}
+
+.test-case p strong {
+    color: #333;
+}
+
+/* Download link */
+#download-link {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#download-link a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+#download-link a:hover {
+    text-decoration: underline;
+}
+
+/* Chart styling */
+#testCaseChart {
+    margin-top: 40px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    #filter-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #filter-controls label, #filter-controls select {
+        margin-bottom: 15px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav {
+        margin-top: 15px;
+        flex-direction: column;
+    }
+
+    header nav a {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}

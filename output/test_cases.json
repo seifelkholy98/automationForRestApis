@@ -1,0 +1,1153 @@
+[ {
+  "endpoint" : "/accountHolders",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The operation should be successful, and the response should contain the newly created account holder information.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a new account holder can be successfully created.",
+    "keywords" : [ "Account Holder Details: {Name: John Doe", "Email: johndoe@example.com", "Phone: 1234567890}" ],
+    "steps" : [ "1 Send a POST request to the /accountHolders endpoint with valid account holder details.", "2 Check the response status code.", "3 Verify that the response body contains the newly created account holder information." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Create", "Account Holder", "Success" ]
+}, {
+  "endpoint" : "/accountHolders",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The request should result in a 400 Bad Request error with an error message indicating the missing fields.",
+  "testCaseDetails" : [ {
+    "description" : "Test creating an account holder with missing required fields.",
+    "keywords" : [ "Missing Fields: {Name: John Doe", "Email: johndoe@example.com}" ],
+    "steps" : [ "1 Send a POST request to the /accountHolders endpoint with missing required fields.", "2 Check the response status code.", "3 Verify that the response body contains an error message indicating the missing fields." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Missing Fields", "Error Handling" ]
+}, {
+  "endpoint" : "/accountHolders",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The request should result in a 401 Unauthorized error with an error message indicating the need for authentication.",
+  "testCaseDetails" : [ {
+    "description" : "Test unauthorized access to create an account holder.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a POST request to the /accountHolders endpoint without authentication.", "2 Check the response status code.", "3 Verify that the response body contains an error message indicating the need for authentication." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized Access", "Authentication" ]
+}, {
+  "endpoint" : "/accountHolders",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "All account holders should be successfully created within an acceptable response time.",
+  "testCaseDetails" : [ {
+    "description" : "Test the performance of creating multiple account holders simultaneously.",
+    "keywords" : [ "Concurrent Requests", "Performance Testing" ],
+    "steps" : [ "1 Send multiple concurrent POST requests to the /accountHolders endpoint to create account holders.", "2 Monitor the response times for each request.", "3 Verify that all account holders are successfully created without any performance degradation." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Concurrent Requests", "Response Time" ]
+}, {
+  "endpoint" : "/accountHolders/{id}",
+  "method" : "GET",
+  "parameters" : "Path parameter - account holder ID",
+  "expectedResponse" : "The operation should return a 200 status code with the account holder details.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a valid account holder can be retrieved successfully.",
+    "keywords" : [ "Account Holder ID: \"123456\"" ],
+    "steps" : [ "1 Provide a valid account holder ID in the path parameter.", "2 Send a GET request to the /accountHolders/{id} endpoint." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Valid", "Success" ]
+}, {
+  "endpoint" : "/accountHolders/{id}",
+  "method" : "GET",
+  "parameters" : "Path parameter - account holder ID",
+  "expectedResponse" : "The operation should return a 400 status code with a Bad Request error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an invalid account holder ID returns a 400 Bad Request error.",
+    "keywords" : [ "Account Holder ID: \"invalid_id\"" ],
+    "steps" : [ "1 Provide an invalid account holder ID in the path parameter.", "2 Send a GET request to the /accountHolders/{id} endpoint." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Invalid", "Error" ]
+}, {
+  "endpoint" : "/accountHolders/{id}",
+  "method" : "GET",
+  "parameters" : "Path parameter - account holder ID",
+  "expectedResponse" : "The operation should return a 401 status code with an Unauthorized error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that unauthorized access to the endpoint returns a 401 Unauthorized error.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a GET request to the /accountHolders/{id} endpoint without proper authentication." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized", "Error" ]
+}, {
+  "endpoint" : "/accountHolders/{id}",
+  "method" : "GET",
+  "parameters" : "Path parameter - account holder ID",
+  "expectedResponse" : "The operation should handle the concurrent requests efficiently without significant performance degradation.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving an account holder.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send multiple concurrent GET requests to the /accountHolders/{id} endpoint." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Concurrent", "Efficiency" ]
+}, {
+  "endpoint" : "/accountHolders/{id}/balanceAccounts",
+  "method" : "GET",
+  "parameters" : "Account Holder ID (path parameter)",
+  "expectedResponse" : "The operation should be successful, and the response should contain the list of balance accounts for the specified account holder.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that all balance accounts of a specific account holder can be retrieved successfully.",
+    "keywords" : [ "Account Holder ID: \"123456\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /accountHolders/{id}/balanceAccounts with the valid account holder ID.", "2 Check the response for the list of balance accounts." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Retrieve", "Success" ]
+}, {
+  "endpoint" : "/accountHolders/{id}/balanceAccounts",
+  "method" : "GET",
+  "parameters" : "Account Holder ID (path parameter)",
+  "expectedResponse" : "The response should return a 400 Bad Request error due to the invalid account holder ID.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an error is returned when an invalid account holder ID is provided.",
+    "keywords" : [ "Account Holder ID: \"invalid_id\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /accountHolders/{id}/balanceAccounts with an invalid account holder ID.", "2 Check the response for the error status code." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Error Handling", "Invalid Input" ]
+}, {
+  "endpoint" : "/accountHolders/{id}/balanceAccounts",
+  "method" : "GET",
+  "parameters" : "Account Holder ID (path parameter)",
+  "expectedResponse" : "The response should return a 401 Unauthorized error if the user is not authenticated.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that only authorized users can access the balance accounts of an account holder.",
+    "keywords" : [ "Account Holder ID: \"123456\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /accountHolders/{id}/balanceAccounts with a valid account holder ID.", "2 Check the response for the status code." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Authorization", "Unauthorized Access" ]
+}, {
+  "endpoint" : "/accountHolders/{id}/balanceAccounts",
+  "method" : "GET",
+  "parameters" : "Account Holder ID (path parameter), Limit (query parameter)",
+  "expectedResponse" : "The operation should be successful, and the response time should be within acceptable limits for retrieving a large number of balance accounts.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving balance accounts for a large number of items.",
+    "keywords" : [ "Account Holder ID: \"123456\"", "Limit: 100" ],
+    "steps" : [ "1 Send a GET request to the endpoint /accountHolders/{id}/balanceAccounts with a large limit value.", "2 Check the response time for retrieving the balance accounts." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Load Testing", "Response Time" ]
+}, {
+  "endpoint" : "/balanceAccounts",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The operation should be successful.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a balance account can be successfully created.",
+    "keywords" : [ "Valid balance account data" ],
+    "steps" : [ "1 Send a POST request to the /balanceAccounts endpoint.", "2 Include valid data for creating a balance account in the request body.", "3 Verify that the response status code is 200." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Create", "Success" ]
+}, {
+  "endpoint" : "/balanceAccounts",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The request should return a 401 status code.",
+  "testCaseDetails" : [ {
+    "description" : "Test unauthorized access to create a balance account.",
+    "keywords" : [ "Unauthorized access", "valid balance account data" ],
+    "steps" : [ "1 Send a POST request to the /balanceAccounts endpoint without authentication.", "2 Include valid data for creating a balance account in the request body.", "3 Verify that the response status code is 401." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized", "Authentication" ]
+}, {
+  "endpoint" : "/balanceAccounts",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "All requests should be processed successfully within an acceptable time frame.",
+  "testCaseDetails" : [ {
+    "description" : "Test the performance of creating multiple balance accounts.",
+    "keywords" : [ "Concurrent requests", "valid balance account data", "response time" ],
+    "steps" : [ "1 Send multiple concurrent POST requests to the /balanceAccounts endpoint.", "2 Include valid data for creating a balance account in each request body.", "3 Measure the response time for each request.", "4 Verify that all requests are processed successfully within an acceptable time frame." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Concurrent", "Response Time" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps",
+  "method" : "GET",
+  "parameters" : "balanceAccountId (path), offset (query), limit (query)",
+  "expectedResponse" : "The operation should be successful, and the response should contain the sweeps for the specified balance account.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that all sweeps for a specific balance account can be retrieved successfully.",
+    "keywords" : [ "balanceAccountId: \"12345\"", "offset: 0", "limit: 10" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balanceAccounts/{balanceAccountId}/sweeps with a valid balanceAccountId in the path parameter.", "2 Include the offset and limit query parameters to control the number of items returned per page.", "3 Verify that the response status code is 200." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Retrieve", "Success", "Pagination" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps",
+  "method" : "GET",
+  "parameters" : "balanceAccountId (path)",
+  "expectedResponse" : "The request should fail with a 401 status code indicating unauthorized access.",
+  "testCaseDetails" : [ {
+    "description" : "Test unauthorized access to retrieve sweeps for a balance account.",
+    "keywords" : [ "balanceAccountId: \"54321\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balanceAccounts/{balanceAccountId}/sweeps without providing authentication credentials.", "2 Verify that the response status code is 401 (Unauthorized)." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized", "Authentication" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps",
+  "method" : "GET",
+  "parameters" : "balanceAccountId (path), offset (query), limit (query)",
+  "expectedResponse" : "The operation should be completed within an acceptable response time, considering the large number of sweeps.",
+  "testCaseDetails" : [ {
+    "description" : "Test the performance of retrieving sweeps for a balance account with a large number of items.",
+    "keywords" : [ "balanceAccountId: \"99999\"", "offset: 0", "limit: 100" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balanceAccounts/{balanceAccountId}/sweeps with a balanceAccountId that has a large number of associated sweeps.", "2 Include the offset and limit query parameters to retrieve a specific number of items per page.", "3 Measure the response time for retrieving the sweeps." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Large Data", "Response Time", "Efficiency" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps",
+  "method" : "POST",
+  "parameters" : "balanceAccountId (path parameter)",
+  "expectedResponse" : "The sweep should be successfully created.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a sweep can be successfully created.",
+    "keywords" : [ "balanceAccountId: \"12345\"" ],
+    "steps" : [ "1 Send a POST request to the endpoint /balanceAccounts/{balanceAccountId}/sweeps with the required parameters.", "2 Provide a valid balanceAccountId in the path parameter.", "3 Verify the response code is 200." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Create", "Success" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps",
+  "method" : "POST",
+  "parameters" : "balanceAccountId (path parameter)",
+  "expectedResponse" : "The request should result in a bad request.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a sweep creation request with missing or invalid parameters results in a bad request.",
+    "keywords" : [ "balanceAccountId: \"invalid\"" ],
+    "steps" : [ "1 Send a POST request to the endpoint /balanceAccounts/{balanceAccountId}/sweeps with missing or invalid parameters.", "2 Provide an invalid or missing balanceAccountId in the path parameter.", "3 Verify the response code is 400." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Bad Request", "Invalid Parameters" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps",
+  "method" : "POST",
+  "parameters" : "balanceAccountId (path parameter)",
+  "expectedResponse" : "The request should be unauthorized.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that unauthorized access to create a sweep is denied.",
+    "keywords" : [ "balanceAccountId: \"12345\"" ],
+    "steps" : [ "1 Send a POST request to the endpoint /balanceAccounts/{balanceAccountId}/sweeps without proper authentication.", "2 Provide a valid balanceAccountId in the path parameter.", "3 Verify the response code is 401." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized", "Authentication" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps",
+  "method" : "POST",
+  "parameters" : "balanceAccountId (path parameter)",
+  "expectedResponse" : "The server should handle the concurrent requests efficiently without significant performance degradation.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of creating a sweep by sending multiple concurrent requests.",
+    "keywords" : [ "balanceAccountId: \"12345\"" ],
+    "steps" : [ "1 Send multiple concurrent POST requests to the endpoint /balanceAccounts/{balanceAccountId}/sweeps.", "2 Provide a valid balanceAccountId in the path parameter for each request.", "3 Monitor the response times and server load." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Concurrent Requests", "Load Testing" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}",
+  "method" : "GET",
+  "parameters" : "balanceAccountId, sweepId",
+  "expectedResponse" : "The operation should be successful.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a valid sweep can be retrieved successfully.",
+    "keywords" : [ "balanceAccountId: \"12345\"", "sweepId: \"67890\"" ],
+    "steps" : [ "1 Send a GET request to /balanceAccounts/{balanceAccountId}/sweeps/{sweepId} with valid balanceAccountId and sweepId.", "2 Check the response status code.", "3 Validate the response body for the expected sweep details." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Valid", "Success" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}",
+  "method" : "GET",
+  "parameters" : "balanceAccountId, sweepId",
+  "expectedResponse" : "The response should indicate that authentication is required.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an unauthorized user cannot access the sweep information.",
+    "keywords" : [ "Authentication: InvalidToken" ],
+    "steps" : [ "1 Send a GET request to /balanceAccounts/{balanceAccountId}/sweeps/{sweepId} with invalid or missing authentication credentials.", "2 Check the response status code.", "3 Verify that the response contains an error message indicating unauthorized access." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized", "Authentication" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}",
+  "method" : "GET",
+  "parameters" : "balanceAccountId, sweepId",
+  "expectedResponse" : "The API should respond within an acceptable time frame.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving a sweep with a large number of balance accounts and sweeps.",
+    "keywords" : [ "LargeDataset: 1000 balance accounts", "5000 sweeps" ],
+    "steps" : [ "1 Generate a large dataset of balance accounts and sweeps.", "2 Send a GET request to /balanceAccounts/{balanceAccountId}/sweeps/{sweepId} with a randomly selected balanceAccountId and sweepId from the dataset.", "3 Measure the response time of the API call." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "LargeDataset", "ResponseTime" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}",
+  "method" : "DELETE",
+  "parameters" : "balanceAccountId, sweepId",
+  "expectedResponse" : "The operation should be successful with a 204 status code.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a sweep can be successfully deleted.",
+    "keywords" : [ "balanceAccountId: \"12345\"", "sweepId: \"67890\"" ],
+    "steps" : [ "1 Send a DELETE request to the endpoint /balanceAccounts/{balanceAccountId}/sweeps/{sweepId} with valid balanceAccountId and sweepId.", "2 Check the response status code.", "3 Verify that the response body is empty." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Delete", "Success" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}",
+  "method" : "DELETE",
+  "parameters" : "None",
+  "expectedResponse" : "The request should fail with a 400 Bad Request status code.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a sweep cannot be deleted without providing the required parameters.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a DELETE request to the endpoint /balanceAccounts/{balanceAccountId}/sweeps/{sweepId} without providing balanceAccountId and sweepId.", "2 Check the response status code.", "3 Verify the error message in the response body." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Missing Parameters", "Error" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}",
+  "method" : "DELETE",
+  "parameters" : "balanceAccountId, sweepId",
+  "expectedResponse" : "The request should be unauthorized with a 401 status code.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that unauthorized users cannot delete a sweep.",
+    "keywords" : [ "Authorization: \"Bearer token123\"" ],
+    "steps" : [ "1 Send a DELETE request to the endpoint /balanceAccounts/{balanceAccountId}/sweeps/{sweepId} with invalid or missing authentication credentials.", "2 Check the response status code.", "3 Verify the error message in the response body." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized", "Authentication" ]
+}, {
+  "endpoint" : "/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}",
+  "method" : "DELETE",
+  "parameters" : "balanceAccountId, sweepId",
+  "expectedResponse" : "The deletion requests should be processed within an acceptable time frame.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of deleting a sweep with a large number of balance accounts and sweeps.",
+    "keywords" : [ "Large dataset" ],
+    "steps" : [ "1 Generate a large number of balance accounts and sweeps.", "2 Send a DELETE request to the endpoint /balanceAccounts/{balanceAccountId}/sweeps/{sweepId} for each balance account and sweep.", "3 Measure the response time for each deletion request." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Large Dataset", "Response Time" ]
+}, {
+  "endpoint" : "/balanceAccounts/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the balance account.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The operation should be successful, and the balance account details should be returned.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a valid balance account can be retrieved successfully.",
+    "keywords" : [ "Valid ID: \"12345\"" ],
+    "steps" : [ "1 Send a GET request to /balanceAccounts/{valid_id}.", "2 Verify that the response status code is 200.", "3 Check the response body for the balance account details." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "ValidID", "Success" ]
+}, {
+  "endpoint" : "/balanceAccounts/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the balance account.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The request should result in a 400 Bad Request error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an invalid balance account ID returns a 400 Bad Request error.",
+    "keywords" : [ "Invalid ID: \"invalid_id\"" ],
+    "steps" : [ "1 Send a GET request to /balanceAccounts/{invalid_id}.", "2 Verify that the response status code is 400.", "3 Check the response body for the error message." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "InvalidID", "Error" ]
+}, {
+  "endpoint" : "/balanceAccounts/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the balance account.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The request should result in a 401 Unauthorized error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that unauthorized access to the balance account endpoint returns a 401 Unauthorized error.",
+    "keywords" : [ "Unauthorized Access" ],
+    "steps" : [ "1 Send a GET request to /balanceAccounts/{valid_id} without proper authentication.", "2 Verify that the response status code is 401.", "3 Check the response body for the unauthorized error message." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized", "Error" ]
+}, {
+  "endpoint" : "/balanceAccounts/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the balance account.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The average response time should meet the performance requirements.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving a balance account.",
+    "keywords" : [ "Performance Testing" ],
+    "steps" : [ "1 Send multiple concurrent GET requests to /balanceAccounts/{valid_id}.", "2 Measure the response time for each request.", "3 Analyze the average response time and ensure it meets performance requirements." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Performance", "ResponseTime" ]
+}, {
+  "endpoint" : "/balanceAccounts/{id}/paymentInstruments",
+  "method" : "GET",
+  "parameters" : "Path parameter - balance account ID",
+  "expectedResponse" : "The operation should be successful, and the response should contain the list of payment instruments for the specified balance account.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that all payment instruments for a specific balance account can be retrieved successfully.",
+    "keywords" : [ "Balance Account ID: \"12345\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balanceAccounts/{id}/paymentInstruments with a valid balance account ID.", "2 Include the necessary authentication credentials if required.", "3 Check the response for the list of payment instruments associated with the balance account." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Payment Instruments", "Retrieve", "Success" ]
+}, {
+  "endpoint" : "/balanceAccounts/{id}/paymentInstruments",
+  "method" : "GET",
+  "parameters" : "Path parameter - balance account ID",
+  "expectedResponse" : "The request should result in a 400 Bad Request error due to the invalid balance account ID.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an error is returned when trying to retrieve payment instruments for a non-existent balance account.",
+    "keywords" : [ "Invalid Balance Account ID: \"99999\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balanceAccounts/{invalid_id}/paymentInstruments with an invalid balance account ID.", "2 Include the necessary authentication credentials if required.", "3 Check the response for the error message indicating the invalid balance account ID." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Error Handling", "Invalid Input", "Bad Request" ]
+}, {
+  "endpoint" : "/balanceAccounts/{id}/paymentInstruments",
+  "method" : "GET",
+  "parameters" : "Path parameter - balance account ID",
+  "expectedResponse" : "The request should result in a 401 Unauthorized error due to insufficient authentication credentials.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that only authorized users can retrieve payment instruments for a balance account.",
+    "keywords" : [ "Authorization Token: \"invalid_token\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balanceAccounts/{id}/paymentInstruments with a valid balance account ID.", "2 Use invalid or missing authentication credentials.", "3 Check the response for the error message indicating unauthorized access." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Authorization", "Unauthorized Access", "Authentication" ]
+}, {
+  "endpoint" : "/balanceAccounts/{id}/paymentInstruments",
+  "method" : "GET",
+  "parameters" : "Path parameter - balance account ID, Query parameters - offset, limit",
+  "expectedResponse" : "The operation should be successful, and the response time should be within acceptable performance thresholds.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving payment instruments for a balance account with a large number of items.",
+    "keywords" : [ "Offset: 0", "Limit: 100" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balanceAccounts/{id}/paymentInstruments with a balance account ID.", "2 Include the necessary authentication credentials if required.", "3 Set the offset and limit parameters to retrieve a large number of payment instruments.", "4 Measure the response time and check if it falls within acceptable performance limits." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Large Data Set", "Response Time", "Performance Limits" ]
+}, {
+  "endpoint" : "/balancePlatforms/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the balance platform.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The operation should be successful.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a valid balance platform ID returns the balance platform information successfully.",
+    "keywords" : [ "Valid balance platform ID: \"12345\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balancePlatforms/{valid_id}.", "2 Include a valid balance platform ID in the path parameter.", "3 Verify the response status code is 200." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Valid ID", "Success" ]
+}, {
+  "endpoint" : "/balancePlatforms/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the balance platform.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The request should result in a Bad Request error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an invalid balance platform ID returns a Bad Request error.",
+    "keywords" : [ "Invalid balance platform ID: \"invalid_id\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balancePlatforms/{invalid_id}.", "2 Include an invalid balance platform ID in the path parameter.", "3 Verify the response status code is 400." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Invalid ID", "Error" ]
+}, {
+  "endpoint" : "/balancePlatforms/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the balance platform.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The request should result in a 401 Unauthorized error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that unauthorized access to the endpoint results in a 401 Unauthorized error.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balancePlatforms/{id}.", "2 Do not include any authentication credentials.", "3 Verify the response status code is 401." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized", "Error" ]
+}, {
+  "endpoint" : "/balancePlatforms/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the balance platform.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The endpoint should handle multiple concurrent requests efficiently.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of the endpoint by sending multiple concurrent requests.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send multiple concurrent GET requests to the endpoint /balancePlatforms/{id}.", "2 Measure the response time for each request.", "3 Verify that the endpoint can handle the load without significant degradation in response time." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Load Testing", "Efficiency" ]
+}, {
+  "endpoint" : "/balancePlatforms/{id}/accountHolders",
+  "method" : "GET",
+  "parameters" : "Path parameter: id (string), Query parameters: offset (integer), limit (integer)",
+  "expectedResponse" : "The operation should be successful, and the response should contain a list of account holders under the specified balance platform.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that all account holders under a specific balance platform can be retrieved successfully.",
+    "keywords" : [ "Balance Platform ID: \"123456\"", "Offset: 0", "Limit: 10" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balancePlatforms/{id}/accountHolders with a valid balance platform ID.", "2 Include the optional parameters offset and limit in the query string if needed.", "3 Check the response for the list of account holders." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Retrieve", "Account Holders", "Success" ]
+}, {
+  "endpoint" : "/balancePlatforms/{id}/accountHolders",
+  "method" : "GET",
+  "parameters" : "Path parameter: id (string)",
+  "expectedResponse" : "The request should fail with a 400 Bad Request error due to the invalid balance platform ID.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an error is returned when trying to retrieve account holders under a non-existent balance platform.",
+    "keywords" : [ "Invalid Balance Platform ID: \"invalid_id\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balancePlatforms/{invalid_id}/accountHolders with an invalid balance platform ID.", "2 Check the response status code." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Error Handling", "Invalid Input" ]
+}, {
+  "endpoint" : "/balancePlatforms/{id}/accountHolders",
+  "method" : "GET",
+  "parameters" : "Path parameter: id (string)",
+  "expectedResponse" : "The request should fail with a 401 Unauthorized error indicating that authentication is required.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that authentication is required to access the account holders under a balance platform.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balancePlatforms/{id}/accountHolders without authentication credentials.", "2 Check the response status code." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Authentication", "Unauthorized" ]
+}, {
+  "endpoint" : "/balancePlatforms/{id}/accountHolders",
+  "method" : "GET",
+  "parameters" : "Path parameter: id (string), Query parameter: limit (integer)",
+  "expectedResponse" : "The operation should be successful, and the response time should be within acceptable limits for retrieving a large number of account holders.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving a large number of account holders under a balance platform.",
+    "keywords" : [ "High Limit: 100" ],
+    "steps" : [ "1 Send a GET request to the endpoint /balancePlatforms/{id}/accountHolders with a high limit value to retrieve a large number of account holders.", "2 Measure the response time of the API call." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Large Data Set", "Response Time" ]
+}, {
+  "endpoint" : "/grantAccounts/{id}",
+  "method" : "GET",
+  "parameters" : "Path parameter: id",
+  "expectedResponse" : "The operation should be successful.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a valid grant account can be retrieved successfully.",
+    "keywords" : [ "ID: valid_id" ],
+    "steps" : [ "1 Send a GET request to the endpoint /grantAccounts/{valid_id}.", "2 Include the valid grant account ID in the path parameter.", "3 Verify that the response status code is 200." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Valid ID", "Successful Response" ]
+}, {
+  "endpoint" : "/grantAccounts/{id}",
+  "method" : "GET",
+  "parameters" : "Path parameter: id",
+  "expectedResponse" : "The request should result in a Bad Request error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an invalid grant account ID returns a Bad Request error.",
+    "keywords" : [ "ID: invalid_id" ],
+    "steps" : [ "1 Send a GET request to the endpoint /grantAccounts/{invalid_id}.", "2 Include an invalid grant account ID in the path parameter.", "3 Verify that the response status code is 400." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Invalid ID", "Bad Request" ]
+}, {
+  "endpoint" : "/grantAccounts/{id}",
+  "method" : "GET",
+  "parameters" : "Path parameter: id",
+  "expectedResponse" : "The request should result in a 401 Unauthorized error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that unauthorized access to the endpoint results in a 401 Unauthorized error.",
+    "keywords" : [ "Authentication: None" ],
+    "steps" : [ "1 Send a GET request to the endpoint /grantAccounts/{id} without proper authentication.", "2 Ensure that the request does not include valid credentials.", "3 Verify that the response status code is 401." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized Access", "Authentication" ]
+}, {
+  "endpoint" : "/grantAccounts/{id}",
+  "method" : "GET",
+  "parameters" : "Path parameter: id",
+  "expectedResponse" : "The average response time should be within acceptable limits.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving a grant account.",
+    "keywords" : [ "Concurrent Requests" ],
+    "steps" : [ "1 Send multiple concurrent GET requests to the endpoint /grantAccounts/{id}.", "2 Measure the response time for each request.", "3 Verify that the average response time is within acceptable limits." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Concurrent Requests", "Response Time" ]
+}, {
+  "endpoint" : "/grantOffers",
+  "method" : "GET",
+  "parameters" : "accountHolderId",
+  "expectedResponse" : "The operation should be successful, and the response should contain the list of available grant offers.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a valid request with a valid accountHolderId returns the list of available grant offers.",
+    "keywords" : [ "accountHolderId: \"12345\"" ],
+    "steps" : [ "1 Send a GET request to the /grantOffers endpoint with a valid accountHolderId parameter.", "2 Check if the response status code is 200.", "3 Verify that the response body contains the list of available grant offers." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "ValidRequest", "AvailableOffers" ]
+}, {
+  "endpoint" : "/grantOffers",
+  "method" : "GET",
+  "parameters" : "accountHolderId",
+  "expectedResponse" : "The request should fail with a Bad Request error due to the missing accountHolderId parameter.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a request without the required accountHolderId parameter results in a Bad Request error.",
+    "keywords" : [ "accountHolderId: \"\"" ],
+    "steps" : [ "1 Send a GET request to the /grantOffers endpoint without the accountHolderId parameter.", "2 Check if the response status code is 400.", "3 Verify that the response body contains a descriptive error message." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "MissingParameter", "BadRequest" ]
+}, {
+  "endpoint" : "/grantOffers",
+  "method" : "GET",
+  "parameters" : "None",
+  "expectedResponse" : "The request should fail with a 401 Unauthorized error due to missing authentication credentials.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an unauthorized request without authentication credentials results in a 401 Unauthorized error.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a GET request to the /grantOffers endpoint without providing authentication credentials.", "2 Check if the response status code is 401.", "3 Verify that the response body contains an Unauthorized error message." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "UnauthorizedRequest", "Authentication" ]
+}, {
+  "endpoint" : "/grantOffers",
+  "method" : "GET",
+  "parameters" : "accountHolderId",
+  "expectedResponse" : "The server should handle multiple concurrent requests efficiently without significant degradation in response times.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of the /grantOffers endpoint by sending multiple concurrent requests with different accountHolderIds.",
+    "keywords" : [ "accountHolderIds: [\"12345\"", "\"67890\"", "\"54321\"]" ],
+    "steps" : [ "1 Send multiple concurrent GET requests to the /grantOffers endpoint with different accountHolderIds.", "2 Monitor the response times for each request.", "3 Analyze the server's response time and performance under load." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "ConcurrentRequests", "ResponseTime" ]
+}, {
+  "endpoint" : "/grantOffers/{grantOfferId}",
+  "method" : "GET",
+  "parameters" : "grantOfferId (path parameter)",
+  "expectedResponse" : "The operation should be successful, and the grant offer details should be returned.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a valid grant offer can be retrieved successfully.",
+    "keywords" : [ "grantOfferId: \"validGrantOfferId\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /grantOffers/{validGrantOfferId}.", "2 Verify that the response status code is 200.", "3 Check if the response body contains the expected grant offer details." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Valid", "Success" ]
+}, {
+  "endpoint" : "/grantOffers/{grantOfferId}",
+  "method" : "GET",
+  "parameters" : "grantOfferId (path parameter)",
+  "expectedResponse" : "The request should fail with a \"Bad Request\" error message.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an invalid grant offer ID results in a \"Bad Request\" response.",
+    "keywords" : [ "grantOfferId: \"invalidGrantOfferId\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /grantOffers/{invalidGrantOfferId}.", "2 Verify that the response status code is 400.", "3 Check if the response body contains a descriptive error message." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Invalid", "Error" ]
+}, {
+  "endpoint" : "/grantOffers/{grantOfferId}",
+  "method" : "GET",
+  "parameters" : "grantOfferId (path parameter)",
+  "expectedResponse" : "The request should fail with an \"Unauthorized\" error message.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that unauthorized access to the grant offer endpoint results in a \"Unauthorized\" response.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a GET request to the endpoint /grantOffers/{grantOfferId} without proper authentication.", "2 Verify that the response status code is 401.", "3 Check if the response body contains an unauthorized error message." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized", "Authentication" ]
+}, {
+  "endpoint" : "/grantOffers/{grantOfferId}",
+  "method" : "GET",
+  "parameters" : "grantOfferId (path parameter)",
+  "expectedResponse" : "The average response time should be within acceptable performance limits.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving a grant offer by ID.",
+    "keywords" : [ "grantOfferId: \"performanceGrantOfferId\"" ],
+    "steps" : [ "1 Send multiple concurrent GET requests to the endpoint /grantOffers/{grantOfferId}.", "2 Measure the response time for each request.", "3 Analyze the average response time and ensure it meets the performance requirements." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Performance", "Response Time" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The operation should be successful.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a payment instrument group can be successfully created.",
+    "keywords" : [ "Request body: {\"name\": \"Credit Cards\"", "\"description\": \"Group of credit card payment methods\"}" ],
+    "steps" : [ "1 Send a POST request to the /paymentInstrumentGroups endpoint.", "2 Include the necessary data in the request body to create a payment instrument group.", "3 Check the response code for a successful creation (200)." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Create", "Success" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The request should result in a bad request error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a request with missing or incorrect data results in a bad request error.",
+    "keywords" : [ "Request body: {\"name\": \"\"", "\"description\": \"Group of credit card payment methods\"}" ],
+    "steps" : [ "1 Send a POST request to the /paymentInstrumentGroups endpoint with missing or incorrect data in the request body.", "2 Check the response code for a bad request error (400)." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Bad Request", "Error" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The request should result in an authentication error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that unauthorized access to create a payment instrument group results in an authentication error.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a POST request to the /paymentInstrumentGroups endpoint without proper authentication.", "2 Check the response code for an authentication error (401)." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized", "Authentication" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The system should be able to handle the load efficiently without significant performance degradation.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of creating multiple payment instrument groups simultaneously.",
+    "keywords" : [ "Concurrent requests" ],
+    "steps" : [ "1 Send multiple concurrent POST requests to the /paymentInstrumentGroups endpoint to create payment instrument groups.", "2 Measure the response time and server load under this load." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Load Testing", "Efficiency" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument group.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The operation should be successful, and the response should contain the details of the payment instrument group with the ID \"12345\".",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a valid payment instrument group can be retrieved successfully.",
+    "keywords" : [ "Payment Instrument Group ID: \"12345\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /paymentInstrumentGroups/{id} with a valid payment instrument group ID.", "2 Verify that the response status code is 200.", "3 Check the response body for the expected payment instrument group details." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Valid", "Success" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument group.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The request should fail with a status code of 400, and the response should contain an error message indicating a bad request.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an error is returned when trying to retrieve a payment instrument group with an invalid ID.",
+    "keywords" : [ "Invalid Payment Instrument Group ID: \"invalid_id\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /paymentInstrumentGroups/{id} with an invalid payment instrument group ID.", "2 Verify that the response status code is 400.", "3 Check the response body for the error message indicating a bad request." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Invalid", "Error" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument group.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The request should fail with a status code of 401, and the response should contain an error message indicating that authentication is required.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that authentication is required to access the payment instrument group information.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a GET request to the endpoint /paymentInstrumentGroups/{id} without providing authentication credentials.", "2 Verify that the response status code is 401.", "3 Check the response body for the error message indicating unauthorized access." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Authentication", "Unauthorized" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups/{id}",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument group.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The average response time for retrieving payment instrument groups should meet the performance criteria.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving a payment instrument group.",
+    "keywords" : [ "Payment Instrument Group IDs: \"1111\"", "\"2222\"", "\"3333\"" ],
+    "steps" : [ "1 Send multiple concurrent GET requests to the endpoint /paymentInstrumentGroups/{id} with different valid payment instrument group IDs.", "2 Measure the response time for each request.", "3 Analyze the average response time and ensure it meets the performance requirements." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Concurrent", "Response Time" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups/{id}/transactionRules",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument group.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The operation should be successful, and the response should contain the transaction rules for the specified payment instrument group.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that all transaction rules for a specific payment instrument group can be retrieved successfully.",
+    "keywords" : [ "Payment Instrument Group ID: \"12345\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /paymentInstrumentGroups/{id}/transactionRules with a valid payment instrument group ID.", "2 Check if the response status code is 200.", "3 Validate that the response body contains the expected transaction rules data." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Retrieve", "Transaction Rules", "Success" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups/{id}/transactionRules",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument group.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The request should fail with a 404 error indicating that the payment instrument group was not found.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an error is returned when trying to retrieve transaction rules for a non-existent payment instrument group.",
+    "keywords" : [ "Payment Instrument Group ID: \"99999\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /paymentInstrumentGroups/{id}/transactionRules with an invalid payment instrument group ID.", "2 Check if the response status code is 404." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Retrieve", "Non-existent Group", "Error" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups/{id}/transactionRules",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument group.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The request should fail with a 401 error indicating that authentication is required.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that authentication is required to access transaction rules for a payment instrument group.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a GET request to the endpoint /paymentInstrumentGroups/{id}/transactionRules without providing authentication credentials.", "2 Check if the response status code is 401." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Authentication", "Unauthorized" ]
+}, {
+  "endpoint" : "/paymentInstrumentGroups/{id}/transactionRules",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument group.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The response time for retrieving transaction rules should be within acceptable performance limits.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving transaction rules for a payment instrument group.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send multiple concurrent GET requests to the endpoint /paymentInstrumentGroups/{id}/transactionRules.", "2 Measure the response time for each request.", "3 Analyze the average response time and ensure it meets the performance requirements." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Response Time", "Concurrent Requests" ]
+}, {
+  "endpoint" : "/paymentInstruments",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The payment instrument should be successfully created.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a payment instrument can be successfully created.",
+    "keywords" : [ "Payment instrument data: {\"type\": \"credit card\"", "\"number\": \"1234567890123456\"", "\"expiry\": \"12/23\"", "\"cvv\": \"123\"}" ],
+    "steps" : [ "1 Send a POST request to the /paymentInstruments endpoint.", "2 Include the necessary data in the request body to create a payment instrument.", "3 Check the response code for a successful creation (200 OK)." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "PaymentInstrument", "Creation" ]
+}, {
+  "endpoint" : "/paymentInstruments",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The request should result in a bad request error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a request with missing data results in a bad request error.",
+    "keywords" : [ "Incomplete payment instrument data: {\"type\": \"credit card\"", "\"expiry\": \"12/23\"}" ],
+    "steps" : [ "1 Send a POST request to the /paymentInstruments endpoint with missing or incomplete data.", "2 Check the response code for a bad request error (400)." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Bad Request", "Incomplete Data" ]
+}, {
+  "endpoint" : "/paymentInstruments",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The request should result in an unauthorized error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that unauthorized access to create a payment instrument is denied.",
+    "keywords" : [ "No authentication token provided" ],
+    "steps" : [ "1 Send a POST request to the /paymentInstruments endpoint without proper authentication.", "2 Check the response code for an unauthorized error (401)." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Unauthorized Access", "Authentication" ]
+}, {
+  "endpoint" : "/paymentInstruments",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The system should be able to handle the load and create payment instruments efficiently.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of creating multiple payment instruments simultaneously.",
+    "keywords" : [ "Multiple concurrent requests" ],
+    "steps" : [ "1 Send multiple concurrent POST requests to the /paymentInstruments endpoint to create payment instruments.", "2 Monitor the response times and server load during the process." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Concurrent Requests", "Load Testing" ]
+}, {
+  "endpoint" : "/paymentInstruments/{id}/reveal",
+  "method" : "GET",
+  "parameters" : "Path parameter - id",
+  "expectedResponse" : "The response should contain the PAN information of the payment instrument.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a valid request returns the PAN of a payment instrument.",
+    "keywords" : [ "Payment Instrument ID: 1234567890" ],
+    "steps" : [ "1 Send a GET request to /paymentInstruments/{id}/reveal endpoint with a valid payment instrument ID.", "2 Verify that the response status code is 200.", "3 Check the response body for the PAN information." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "ValidRequest", "PANInformation" ]
+}, {
+  "endpoint" : "/paymentInstruments/{id}/reveal",
+  "method" : "GET",
+  "parameters" : "Path parameter - id",
+  "expectedResponse" : "The response should indicate that authentication is required.",
+  "testCaseDetails" : [ {
+    "description" : "Ensure that an invalid request with missing authentication returns a 401 Unauthorized error.",
+    "keywords" : [ "Authentication: None" ],
+    "steps" : [ "1 Send a GET request to /paymentInstruments/{id}/reveal endpoint without authentication.", "2 Verify that the response status code is 401.", "3 Check the response body for the error message." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "UnauthorizedRequest", "Authentication" ]
+}, {
+  "endpoint" : "/paymentInstruments/{id}/reveal",
+  "method" : "GET",
+  "parameters" : "Path parameter - id",
+  "expectedResponse" : "The response should indicate a problem with the request.",
+  "testCaseDetails" : [ {
+    "description" : "Validate that a request with invalid payment instrument ID returns a 400 Bad Request error.",
+    "keywords" : [ "Invalid Payment Instrument ID: 9876543210" ],
+    "steps" : [ "1 Send a GET request to /paymentInstruments/{id}/reveal endpoint with an invalid payment instrument ID.", "2 Verify that the response status code is 400.", "3 Check the response body for the error message." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "InvalidRequest", "ErrorHandling" ]
+}, {
+  "endpoint" : "/paymentInstruments/{id}/reveal",
+  "method" : "GET",
+  "parameters" : "Path parameter - id",
+  "expectedResponse" : "The server should handle the concurrent requests efficiently without significant degradation in response times.",
+  "testCaseDetails" : [ {
+    "description" : "Test the performance of the endpoint by sending multiple concurrent requests.",
+    "keywords" : [ "Concurrent Requests", "Performance Testing" ],
+    "steps" : [ "1 Simultaneously send multiple GET requests to /paymentInstruments/{id}/reveal endpoint with different payment instrument IDs.", "2 Monitor the response times for each request.", "3 Analyze the server's performance under load." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "PerformanceTesting", "ConcurrentRequests" ]
+}, {
+  "endpoint" : "/paymentInstruments/{id}/transactionRules",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The operation should be successful, and the response should contain the transaction rules for the specified payment instrument.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that all transaction rules for a specific payment instrument can be retrieved successfully.",
+    "keywords" : [ "Payment Instrument ID: \"12345\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /paymentInstruments/{id}/transactionRules with a valid payment instrument ID.", "2 Check the response status code.", "3 Validate the response body to ensure it contains the expected transaction rules." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Retrieve", "Success", "Validation" ]
+}, {
+  "endpoint" : "/paymentInstruments/{id}/transactionRules",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The request should result in a 404 Not Found error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an error is returned when trying to retrieve transaction rules for a non-existent payment instrument.",
+    "keywords" : [ "Payment Instrument ID: \"99999\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /paymentInstruments/{id}/transactionRules with an invalid payment instrument ID.", "2 Check the response status code.", "3 Verify that the response body contains an error message indicating the payment instrument ID is not found." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Error Handling", "Not Found", "Validation" ]
+}, {
+  "endpoint" : "/paymentInstruments/{id}/transactionRules",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The request should result in a 401 Unauthorized error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that authentication is required to access transaction rules for a payment instrument.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a GET request to the endpoint /paymentInstruments/{id}/transactionRules without providing authentication credentials.", "2 Check the response status code.", "3 Validate that the response body contains an error message indicating authentication is required." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Authentication", "Unauthorized", "Error Handling" ]
+}, {
+  "endpoint" : "/paymentInstruments/{id}/transactionRules",
+  "method" : "GET",
+  "parameters" : "{\"name\": \"id\", \"in\": \"path\", \"description\": \"The unique identifier of the payment instrument.\", \"required\": true, \"schema\": {\"type\": \"string\", \"format\": \"None\"}}",
+  "expectedResponse" : "The system should handle concurrent requests efficiently without significant degradation in response times.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving transaction rules for a payment instrument.",
+    "keywords" : [ "Concurrent Requests" ],
+    "steps" : [ "1 Send multiple concurrent GET requests to the endpoint /paymentInstruments/{id}/transactionRules.", "2 Monitor the response times for each request.", "3 Analyze the system's performance under load and ensure that responses are timely." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Load Testing", "Response Time", "Efficiency" ]
+}, {
+  "endpoint" : "/transactionRules",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The transaction rule should be successfully created.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a transaction rule can be successfully created.",
+    "keywords" : [ "Request body with valid transaction rule data." ],
+    "steps" : [ "1 Send a POST request to the /transactionRules endpoint.", "2 Include the necessary data in the request body to create a transaction rule.", "3 Check the response code for a successful creation (200 OK)." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Create", "Success" ]
+}, {
+  "endpoint" : "/transactionRules",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The request should fail with a 400 Bad Request response.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a 400 Bad Request response is returned when invalid data is provided for creating a transaction rule.",
+    "keywords" : [ "Request body with invalid transaction rule data." ],
+    "steps" : [ "1 Send a POST request to the /transactionRules endpoint with invalid data in the request body.", "2 Check the response code for a 400 Bad Request." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Error", "Invalid Data" ]
+}, {
+  "endpoint" : "/transactionRules",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The request should fail with a 401 Unauthorized response.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that authentication is required to create a transaction rule.",
+    "keywords" : [ "No authentication token provided." ],
+    "steps" : [ "1 Send a POST request to the /transactionRules endpoint without authentication.", "2 Check the response code for a 401 Unauthorized." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Authentication", "Unauthorized" ]
+}, {
+  "endpoint" : "/transactionRules",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The server should be able to handle and process multiple transaction rule creations efficiently.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of creating multiple transaction rules simultaneously.",
+    "keywords" : [ "Multiple concurrent requests." ],
+    "steps" : [ "1 Send multiple concurrent POST requests to the /transactionRules endpoint to create transaction rules.", "2 Measure the response time for creating each transaction rule.", "3 Analyze the server's performance under load." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Load Testing", "Efficiency" ]
+}, {
+  "endpoint" : "/transactionRules/{transactionRuleId}",
+  "method" : "GET",
+  "parameters" : "transactionRuleId",
+  "expectedResponse" : "The operation should be successful, and the transaction rule details should be returned.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a valid transaction rule can be retrieved successfully.",
+    "keywords" : [ "transactionRuleId: \"12345\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /transactionRules/{transactionRuleId} with a valid transactionRuleId.", "2 Verify that the response status code is 200.", "3 Check the response body for the expected transaction rule details." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "ValidTransactionRule", "SuccessfulResponse" ]
+}, {
+  "endpoint" : "/transactionRules/{transactionRuleId}",
+  "method" : "GET",
+  "parameters" : "transactionRuleId",
+  "expectedResponse" : "The request should result in a Bad Request error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an invalid transaction rule ID returns a Bad Request error.",
+    "keywords" : [ "transactionRuleId: \"invalidId\"" ],
+    "steps" : [ "1 Send a GET request to the endpoint /transactionRules/{transactionRuleId} with an invalid transactionRuleId.", "2 Verify that the response status code is 400.", "3 Check the response body for the error message." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "InvalidTransactionRuleId", "BadRequestError" ]
+}, {
+  "endpoint" : "/transactionRules/{transactionRuleId}",
+  "method" : "GET",
+  "parameters" : "transactionRuleId",
+  "expectedResponse" : "The request should result in an Unauthorized error.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that unauthorized access to the endpoint returns an Unauthorized error.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a GET request to the endpoint /transactionRules/{transactionRuleId} without proper authentication.", "2 Verify that the response status code is 401.", "3 Check the response body for the Unauthorized error message." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "UnauthorizedAccess", "UnauthorizedError" ]
+}, {
+  "endpoint" : "/transactionRules/{transactionRuleId}",
+  "method" : "GET",
+  "parameters" : "transactionRuleId",
+  "expectedResponse" : "The average response time should be within acceptable limits under load.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of retrieving a transaction rule.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send multiple concurrent GET requests to the endpoint /transactionRules/{transactionRuleId}.", "2 Measure the response time for each request.", "3 Verify that the average response time is within acceptable limits." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "PerformanceTesting", "ResponseTimeValidation" ]
+}, {
+  "endpoint" : "/transactionRules/{transactionRuleId}",
+  "method" : "DELETE",
+  "parameters" : "transactionRuleId",
+  "expectedResponse" : "The transaction rule should be successfully deleted.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a transaction rule can be successfully deleted.",
+    "keywords" : [ "transactionRuleId: \"12345\"" ],
+    "steps" : [ "1 Send a DELETE request to the endpoint /transactionRules/{transactionRuleId} with a valid transactionRuleId.", "2 Check the response status code.", "3 Verify that the transaction rule with the specified transactionRuleId has been deleted." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Delete", "Success" ]
+}, {
+  "endpoint" : "/transactionRules/{transactionRuleId}",
+  "method" : "DELETE",
+  "parameters" : "transactionRuleId",
+  "expectedResponse" : "The response should indicate that the transaction rule does not exist.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that an error is returned when trying to delete a non-existing transaction rule.",
+    "keywords" : [ "transactionRuleId: \"99999\"" ],
+    "steps" : [ "1 Send a DELETE request to the endpoint /transactionRules/{transactionRuleId} with an invalid transactionRuleId.", "2 Check the response status code.", "3 Verify that the response contains an error message indicating that the transaction rule does not exist." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Delete", "Error" ]
+}, {
+  "endpoint" : "/transactionRules/{transactionRuleId}",
+  "method" : "DELETE",
+  "parameters" : "transactionRuleId",
+  "expectedResponse" : "The response should indicate that authentication is required.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that authentication is required to delete a transaction rule.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Send a DELETE request to the endpoint /transactionRules/{transactionRuleId} without authentication.", "2 Check the response status code.", "3 Verify that the response contains an error message indicating that authentication is required." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Authentication", "Error" ]
+}, {
+  "endpoint" : "/transactionRules/{transactionRuleId}",
+  "method" : "DELETE",
+  "parameters" : "transactionRuleId",
+  "expectedResponse" : "The system should maintain acceptable performance under load.",
+  "testCaseDetails" : [ {
+    "description" : "Verify the performance of deleting a transaction rule.",
+    "keywords" : [ "transactionRuleId: \"12345\"" ],
+    "steps" : [ "1 Send multiple concurrent DELETE requests to the endpoint /transactionRules/{transactionRuleId}.", "2 Measure the response time for each request.", "3 Verify that the system can handle the load without significant degradation in performance." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Load Testing", "Performance" ]
+}, {
+  "endpoint" : "/validateBankAccountIdentification",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The operation should be successful.",
+  "testCaseDetails" : [ {
+    "description" : "Verify that a valid bank account can be successfully validated.",
+    "keywords" : [ "BankAccountIdentification: \"1234567890\"" ],
+    "steps" : [ "1 Send a POST request to the /validateBankAccountIdentification endpoint.", "2 Include a valid bank account identification in the request body.", "3 Check the response code for a successful validation (200)." ]
+  } ],
+  "categories" : [ "Functional" ],
+  "tags" : [ "Validation", "Success" ]
+}, {
+  "endpoint" : "/validateBankAccountIdentification",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "Unauthorized - authentication required.",
+  "testCaseDetails" : [ {
+    "description" : "Validate that unauthorized access to the bank account validation endpoint is handled correctly.",
+    "keywords" : [ "None" ],
+    "steps" : [ "1 Attempt to access the /validateBankAccountIdentification endpoint without proper authentication.", "2 Verify that the response code is 401 (Unauthorized)." ]
+  } ],
+  "categories" : [ "Security" ],
+  "tags" : [ "Authentication", "Unauthorized" ]
+}, {
+  "endpoint" : "/validateBankAccountIdentification",
+  "method" : "POST",
+  "parameters" : "None",
+  "expectedResponse" : "The endpoint should handle the load efficiently without errors or delays.",
+  "testCaseDetails" : [ {
+    "description" : "Test the performance of the bank account validation endpoint by sending multiple concurrent requests.",
+    "keywords" : [ "ConcurrentRequests: 100" ],
+    "steps" : [ "1 Simultaneously send multiple POST requests to the /validateBankAccountIdentification endpoint.", "2 Monitor the response times and server load during the requests.", "3 Verify that the endpoint can handle the load without significant performance degradation." ]
+  } ],
+  "categories" : [ "Performance" ],
+  "tags" : [ "Load Testing", "Efficiency" ]
+} ]
